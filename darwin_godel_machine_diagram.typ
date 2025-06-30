@@ -1,21 +1,22 @@
 #import "@preview/cetz:0.4.0"
+
 #set page(width: auto, height: auto, margin: 8pt)
+#set text(font: "Source Sans Pro")
+#show link: it => underline(text(fill: blue)[#it])
 
-
-
-Trying to recreate this \ https://sakana.ai/assets/dgm/dgm-main.png
+Trying to recreate #link("https://sakana.ai/assets/dgm/dgm-main.png")[this diagram] with some slight changes.
 
 #cetz.canvas({
   import cetz.draw: *
 
 // Retângulo exterior
 line(
-   (2.75 - 2.5, 5),
+   (2.75 - 2.5, 5), // centro sup esq
    (-2.5, 5), // canto superior esquerdo
    (-2.5, -4), // inf esq
    (6.5, -4), // inf dir
    (6.5, 5), // sup dir
-   (6.5 - 2.75, 5), 
+   (6.5 - 2.75, 5), // centro sup dir
   stroke: (
     paint: rgb(0, 0, 0, 175), 
     thickness: 1pt, 
@@ -64,12 +65,14 @@ content(
 )
 
 // Setas exteriores
-set-style(mark: (end: ">"))
+//set-style(mark: (end: ">", fill:rgb(193, 15, 19, 200)))
 line(
   (2, 0), (3, 0), (3, 3), (0, 3), (0, 1.5),
   stroke: (
     paint: rgb(193, 15, 19, 200),
+    thickness: 1.5pt
   ),
+  mark: (end: ">", fill: rgb(193, 15, 19, 200))
 )  
 
 content((4.5, 3), [*Task 2:* Rewrite \ your own code])
@@ -78,8 +81,10 @@ content((4.5, 3), [*Task 2:* Rewrite \ your own code])
 line(
   (2, -0.5), (3, -0.5), (3, -1.5), (4, -1.5),
   stroke: (
-    paint: rgb(89, 89, 89, 200)
-  )
+    paint: rgb(89, 89, 89, 200),
+    thickness: 1.5pt
+  ),
+  mark: (end: ">", fill: rgb(89, 89, 89, 200))
 )  
 
 content((4.5, -1.5), [\u{270F}])
